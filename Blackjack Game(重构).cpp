@@ -23,6 +23,13 @@ public:
     {
         is_upward = !is_upward;
     }
+    bool Is_upward()
+    {
+        if(is_upward)
+            return true;
+        else
+            return false;
+    }
     friend ostream & operator << (ostream &out,const Card & card)
     {
         if(card.is_upward)
@@ -57,10 +64,10 @@ private:
 };
 
 
-class Player
+class People
 {
 public:
-    Player(string name)
+    People(string name)
     {
         this->name = name;
     }
@@ -68,10 +75,9 @@ public:
     {
         haveCards.push_back(card);
     }
-    void disPlay()
+    string getName()
     {
-        for(int i=0; i<haveCards.size(); i++)
-            cout << haveCards[i] << "\t";
+        return name;
     }
     int getSum()
     {
@@ -79,6 +85,8 @@ public:
         int cnt=0;
         for(int i=0; i<haveCards.size(); i++)
         {
+            if(!haveCards[i].Is_upward())
+                return 0;
             if(haveCards[i].getNumber()>10)
                 sum=sum+10;
             else if(haveCards[i].getNumber()==1)
@@ -93,27 +101,7 @@ public:
             sum=sum-10;
         return sum;
     }
-    string getName()
-    {
-        return name;
-    }
-    friend ostream & operator << (ostream &out,Player & player)
-    {
-        cout << player.name << "\t";
-        player.disPlay();
-        out << "(" << player.getSum() << ")" << endl;
-        return out;
-    }
-    virtual bool answer()
-    {
-        char cmd;
-        cout << getName() << ",want a hit? <Y/N>:";
-        cin >> cmd;
-        if(cmd=='N'||cmd=='n')
-            return false;
-        else
-            return true;
-    }
+    virtual bool answer()=0;
     bool IsBusted()
     {
         if(getSum()>21)
@@ -129,23 +117,52 @@ public:
     {
         cout << name << "\tLose!" << endl;
     }
-    void Push()
+    void Deuce()
     {
-        cout << name << "\tPush!" << endl;
+        cout << name << "\tDeuce!" << endl;
     }
     void Clear()
     {
         haveCards.clear();
     }
+    virtual void disPlay()=0;
 protected:
     string name;
     vector <Card> haveCards;
 };
 
-class House:public Player
+class Player:public People
 {
 public:
-    House():Player("House") {}
+    Player(string name):People(name) {}
+    friend ostream & operator << (ostream &out,Player & player)
+    {
+        cout << player.name << "\t";
+        for(int i=0; i<player.haveCards.size(); i++)
+            cout << player.haveCards[i] << "\t";
+        out << "(" << player.getSum() << ")" << endl;
+        return out;
+    }
+    bool answer()
+    {
+        char cmd;
+        cout << name << ",want a hit? <Y/N>:";
+        cin >> cmd;
+        if(cmd=='N'||cmd=='n')
+            return false;
+        else
+            return true;
+    }
+    void disPlay()
+    {
+        cout << *this;
+    }
+};
+
+class House:public People
+{
+public:
+    House():People("House") {}
     void FlipFirstCard()
     {
         haveCards[0].overTurn();
@@ -153,8 +170,10 @@ public:
     friend ostream & operator << (ostream &out,House & house)
     {
         cout << house.name << "\t";
-        house.disPlay();
-        out <<  "(" << house.getSum() << ")" << endl;
+        for(int i=0; i<house.haveCards.size(); i++)
+            cout << house.haveCards[i] << "\t";
+        if(house.getSum()!=0)
+            out <<  "(" << house.getSum() << ")" << endl;
         return out;
     }
     bool answer()
@@ -164,14 +183,10 @@ public:
         else
             return false;
     }
-    bool IsBusted()
+    void disPlay()
     {
-        if(getSum()>21)
-            return true;
-        else
-            return false;
+        cout << *this;
     }
-
 };
 
 
@@ -191,25 +206,30 @@ public:
             cards.push(Card(temp/4+1,numToColour(temp)));
         }
     }
-    void extract(Player *player)
+    void extract(People *people)
     {
         if(!cards.empty())
         {
             Card temp=cards.top();
             cards.pop();
             temp.overTurn();
-            player->getCard(temp);
+            people->getCard(temp);
         }
         else
             cout << "The Poker is empty!" << endl;
     }
-    void AdditionalCards(Player *player)
+    void AdditionalCards(People *people)
     {
         cout << endl;
-        while(player->answer())
+        while(people->answer())
         {
-            extract(player);
-            cout << *player;
+            extract(people);
+            people->disPlay();
+            if(people->IsBusted())
+            {
+                cout << people->getName() << ",bust!" << endl;
+                break;
+            }
         }
     }
     ~Poker()
@@ -240,12 +260,16 @@ private:
 class Game
 {
 public:
-    Game(const vector<string>& names)
+    Game(vector<string>& names)
     {
         for(int i=0; i<names.size(); i++)
             players.push_back(Player(names[i]));
+        names.clear();
     }
-    ~Game() {}
+    ~Game()
+    {
+        players.clear();
+    }
     void Play();
 private:
     Poker poker;
@@ -297,6 +321,8 @@ void Game::Play()
             {
                 players[i].Win();
             }
+            else
+                players[i].Deuce();
         }
     }
     else
@@ -315,15 +341,16 @@ void Game::Play()
                 }
                 else
                 {
-                    players[i].Push();
+                    players[i].Deuce();
                 }
             }
+            else
+                players[i].Lose();
         }
 
     }
 
     // 移除所有玩家的牌
-
     for (int i=0; i<players.size(); i++)
     {
         players[i].Clear();
@@ -333,28 +360,27 @@ void Game::Play()
 
 int main()
 {
-    cout << "\t\tWelcome to Blackjack!\n\n";
-    int numPlayers = 0;
-    while (numPlayers < 1 || numPlayers > 7)
-    {
-        cout << "How many players? (1 - 7): ";
-        cin >> numPlayers;
-    }
-
-    vector <string> names;
-    for (int i = 0; i < numPlayers; i++)
-    {
-        cout << "Enter player name: ";
-        string name;
-        cin >> name;
-        names.push_back(name);
-    }
-    cout << endl;
-
-    Game game(names);
+    cout << "\t\tWelcome to Blackjack!";
     char again = 'y';
     while (again != 'n' && again != 'N')
     {
+        int numPlayers = 0;
+        while (numPlayers < 1 || numPlayers > 7)
+        {
+            cout << endl << "How many players? (1 - 7): ";
+            cin >> numPlayers;
+        }
+
+        vector <string> names;
+        for (int i = 0; i < numPlayers; i++)
+        {
+            cout << "Enter player name: ";
+            string name;
+            cin >> name;
+            names.push_back(name);
+        }
+        cout << endl;
+        Game game(names);
         game.Play();
         cout << "\nDo you want to play again? (Y/N): ";
         cin >> again;
