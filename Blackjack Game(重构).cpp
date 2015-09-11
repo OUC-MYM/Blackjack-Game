@@ -135,7 +135,7 @@ class Player:public People
 {
 public:
     Player(string name):People(name) {}
-    friend ostream & operator << (ostream &out,Player & player)
+    friend ostream & operator << (ostream &out,Player &player)
     {
         cout << player.name << "\t";
         for(int i=0; i<player.haveCards.size(); i++)
@@ -167,7 +167,7 @@ public:
     {
         haveCards[0].overTurn();
     }
-    friend ostream & operator << (ostream &out,House & house)
+    friend ostream & operator << (ostream &out,House &house)
     {
         cout << house.name << "\t";
         for(int i=0; i<house.haveCards.size(); i++)
@@ -227,7 +227,7 @@ public:
             people->disPlay();
             if(people->IsBusted())
             {
-                cout << people->getName() << ",bust!" << endl;
+                cout << people->getName() << " bust!" << endl;
                 break;
             }
         }
@@ -313,6 +313,7 @@ void Game::Play()
     poker.AdditionalCards(&house);
 
     // ÅÐ¶ÏÊäÓ®
+    cout << endl;
     if(house.IsBusted())
     {
         for (int i=0; i<players.size(); i++)
