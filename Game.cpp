@@ -7,23 +7,23 @@ Game::Game(vector<string>& names)
 {
     for(int i=0; i<names.size(); i++)
         players.push_back(Player(names[i]));
-    names.clear();
 }
+
 Game::~Game()
 {
     players.clear();
 }
 
-void Game::Play()
+void Game::Play()       //开始游戏
 {
     // 为每个人发两张牌
     for (int i = 0; i < 2; ++i)
     {
         for (int i=0; i<players.size(); i++)
         {
-            poker.extract(&players[i]);
+            poker.Extract(&players[i]);
         }
-        poker.extract(&house);
+        poker.Extract(&house);
     }
 
     // 隐藏house的第一张牌
@@ -85,15 +85,13 @@ void Game::Play()
             else
                 players[i].Lose();
         }
-
     }
 
-    // 移除所有玩家的牌
+    // 移除牌
     for (int i=0; i<players.size(); i++)
     {
         players[i].Clear();
     }
     house.Clear();
+    poker.Destroy();
 }
-
-

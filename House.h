@@ -7,10 +7,10 @@ class House:public People
 {
 public:
     House();
-    void FlipFirstCard();
+    void FlipFirstCard();       //翻转house的第一张牌
     friend ostream & operator << (ostream &out,House &house);
-    bool answer();
-    void disPlay();
+    bool Answer();
+    void Display();
 };
 
 #endif // HOUSE_H_INCLUDED

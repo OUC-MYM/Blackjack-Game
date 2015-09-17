@@ -8,6 +8,7 @@ using std::endl;
 
 Poker::Poker()
 {
+    bool vis[52];
     memset(vis,0,sizeof(vis));
     srand(time(NULL));
     while(cards.size()<52)
@@ -16,11 +17,29 @@ Poker::Poker()
         if(vis[temp])
             continue;
         vis[temp]=1;
-        cards.push(Card(temp/4+1,numToColour(temp)));
+
+        int num = temp/4+1;
+        char colour;
+        switch(temp%4)
+        {
+        case 1:
+            colour = 3;
+            break;
+        case 2:
+            colour = 4;
+            break;
+        case 3:
+            colour = 5;
+            break;
+        case 0:
+            colour = 6;
+            break;
+        }
+        cards.push(Card(num,colour));
     }
 }
 
-void Poker::extract(People *people)
+void Poker::Extract(People *people)     //发牌
 {
     if(!cards.empty())
     {
@@ -33,13 +52,13 @@ void Poker::extract(People *people)
         cout << "The Poker is empty!" << endl;
 }
 
-void Poker::AdditionalCards(People *people)
+void Poker::AdditionalCards(People *people)     //添加牌
 {
     cout << endl;
-    while(people->answer())
+    while(people->Answer())
     {
-        extract(people);
-        people->disPlay();
+        Extract(people);
+        people->Display();
         if(people->IsBusted())
         {
             cout << people->getName() << " bust!" << endl;
@@ -48,23 +67,14 @@ void Poker::AdditionalCards(People *people)
     }
 }
 
-Poker::~Poker()
+void Poker::Destroy()     //丢弃扑克
 {
     while(!cards.empty())
         cards.pop();
 }
 
-char Poker::numToColour(int num)
+Poker::~Poker()
 {
-    switch(num%4)
-    {
-    case 1:
-        return 'a';
-    case 2:
-        return 'b';
-    case 3:
-        return 'c';
-    case 0:
-        return 'd';
-    }
+    while(!cards.empty())
+        cards.pop();
 }

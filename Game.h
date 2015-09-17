@@ -8,16 +8,16 @@
 #include "Player.h"
 using std::vector;
 
-class Game
+class Game      //游戏类
 {
 public:
     Game(vector<string>& names);
     ~Game();
-    void Play();
+    void Play();        //开始游戏
 private:
-    Poker poker;
-    House house;
-    vector <Player> players;
+    Poker poker;        //扑克
+    House house;        //庄家
+    vector <Player> players;        //玩家
 };
 
 

@@ -7,17 +7,16 @@
 using std::stack;
 
 
-class Poker
+class Poker     //扑克类
 {
 public:
     Poker();
-    void extract(People *people);
-    void AdditionalCards(People *people);
+    void Extract(People *people);       //发牌
+    void AdditionalCards(People *people);       //添加牌
+    void Destroy();     //丢弃扑克
     ~Poker();
 private:
-    bool vis[52];
-    stack <Card> cards;
-    char numToColour(int num);
+    stack <Card> cards;     //扑克中的牌
 };
 
 #endif // POKER_H_INCLUDED

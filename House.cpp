@@ -5,7 +5,7 @@ using std::endl;
 
 House::House():People("House") {}
 
-void House::FlipFirstCard()
+void House::FlipFirstCard()     //翻转house的第一张牌
 {
     haveCards[0].overTurn();
 }
@@ -20,7 +20,7 @@ ostream & operator << (ostream &out,House &house)
     return out;
 }
 
-bool House::answer()
+bool House::Answer()
 {
     if(getSum()<=16)
         return true;
@@ -28,7 +28,7 @@ bool House::answer()
         return false;
 }
 
-void House::disPlay()
+void House::Display()
 {
     cout << *this;
 }

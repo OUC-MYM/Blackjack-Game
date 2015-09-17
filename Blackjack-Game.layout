@@ -1,69 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Player.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="93" topLine="0" />
-		</Cursor>
+	<File name="Card.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="990" topLine="21" />
 	</File>
-	<File name="Card.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="57" topLine="0" />
-		</Cursor>
+	<File name="Card.h" open="1" top="0" tabpos="2">
+		<Cursor position="231" topLine="0" />
 	</File>
-	<File name="Player.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="54" topLine="0" />
-		</Cursor>
+	<File name="Game.cpp" open="1" top="0" tabpos="13">
+		<Cursor position="237" topLine="0" />
 	</File>
-	<File name="Game.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="56" topLine="0" />
-		</Cursor>
+	<File name="Game.h" open="1" top="0" tabpos="12">
+		<Cursor position="399" topLine="0" />
 	</File>
-	<File name="House.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="75" topLine="0" />
-		</Cursor>
+	<File name="House.cpp" open="1" top="0" tabpos="9">
+		<Cursor position="622" topLine="1" />
 	</File>
-	<File name="Poker.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="729" topLine="0" />
-		</Cursor>
+	<File name="House.h" open="1" top="0" tabpos="8">
+		<Cursor position="286" topLine="0" />
 	</File>
-	<File name="Card.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="92" topLine="0" />
-		</Cursor>
+	<File name="People.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="380" topLine="37" />
 	</File>
-	<File name="People.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="76" topLine="0" />
-		</Cursor>
+	<File name="People.h" open="1" top="0" tabpos="4">
+		<Cursor position="688" topLine="0" />
 	</File>
-	<File name="People.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="113" topLine="0" />
-		</Cursor>
+	<File name="Player.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="417" topLine="2" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="161" topLine="0" />
-		</Cursor>
+	<File name="Player.h" open="1" top="0" tabpos="6">
+		<Cursor position="220" topLine="0" />
 	</File>
-	<File name="Poker.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="353" topLine="0" />
-		</Cursor>
+	<File name="Poker.cpp" open="1" top="1" tabpos="11">
+		<Cursor position="1321" topLine="47" />
 	</File>
-	<File name="Game.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="171" topLine="0" />
-		</Cursor>
+	<File name="Poker.h" open="1" top="0" tabpos="10">
+		<Cursor position="187" topLine="0" />
 	</File>
-	<File name="House.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="52" topLine="0" />
-		</Cursor>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1040" topLine="13" />
 	</File>
 </CodeBlocks_layout_file>
