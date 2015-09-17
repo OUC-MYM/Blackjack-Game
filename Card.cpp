@@ -7,17 +7,17 @@ Card::Card(int number,int colour)
     this->is_upward = false;
 }
 
-int Card::getNumber()
+int Card::getNumber()       //取得点数
 {
     return number;
 }
 
-void Card::overTurn()
+void Card::overTurn()       //翻转牌
 {
     is_upward = !is_upward;
 }
 
-bool Card::Is_upward()
+bool Card::Is_upward()      //取得朝向
 {
     if(is_upward)
         return true;

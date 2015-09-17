@@ -18,12 +18,15 @@ ostream & operator << (ostream &out,Player &player)
 bool Player::answer()
 {
     char cmd;
-    cout << name << ",want a hit? <Y/N>:";
-    cin >> cmd;
-    if(cmd=='N'||cmd=='n')
-        return false;
-    else
-        return true;
+    while(true)
+    {
+        cout << name << ",want a hit? <Y/N>:";
+        cin >> cmd;
+        if(cmd=='N'||cmd=='n')
+            return false;
+        if(cmd=='Y'||cmd=='y')
+            return true;
+    }
 }
 
 void Player::disPlay()

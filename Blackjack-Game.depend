@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1441962059 source:d:\github\blackjack-game\main.cpp
+1442400407 source:d:\github\blackjack-game\main.cpp
 	<iostream>
 	"Card.h"
 	"People.h"
@@ -8,55 +8,116 @@
 	"Poker.h"
 	"Game.h"
 
-1441960198 d:\github\blackjack-game\card.h
+1271764078 d:\github\blackjack-game\card.h
 	<iostream>
 
-1441960149 source:d:\github\blackjack-game\card.cpp
+1271764078 source:d:\github\blackjack-game\card.cpp
 	"Card.h"
 
-1441961174 d:\github\blackjack-game\people.h
+1271764852 d:\github\blackjack-game\people.h
 	<iostream>
 	<vector>
 	"Card.h"
 
-1441961405 source:d:\github\blackjack-game\people.cpp
+1271764852 source:d:\github\blackjack-game\people.cpp
 	"People.h"
 	<iostream>
 
-1441962158 d:\github\blackjack-game\player.h
+1441962160 d:\github\blackjack-game\player.h
 	"People.h"
 
-1441961302 source:d:\github\blackjack-game\player.cpp
+1271764852 source:d:\github\blackjack-game\player.cpp
 	"Player.h"
 	<iostream>
 
-1441962196 d:\github\blackjack-game\house.h
+1271764852 d:\github\blackjack-game\house.h
 	"People.h"
 
-1441961426 source:d:\github\blackjack-game\house.cpp
+1271764852 source:d:\github\blackjack-game\house.cpp
 	"House.h"
 	<iostream>
 
-1441961813 d:\github\blackjack-game\poker.h
+1442399439 d:\github\blackjack-game\poker.h
 	<iostream>
 	<stack>
 	"People.h"
 
-1441961813 source:d:\github\blackjack-game\poker.cpp
+1442401020 source:d:\github\blackjack-game\poker.cpp
 	"Poker.h"
 	<iostream>
 	<cstring>
 	<cstdlib>
 	<ctime>
 
-1441962033 source:d:\github\blackjack-game\game.cpp
+1442400851 source:d:\github\blackjack-game\game.cpp
 	"Game.h"
 	<iostream>
 
-1441961998 d:\github\blackjack-game\game.h
+1271764078 d:\github\blackjack-game\game.h
 	<vector>
 	<iostream>
 	"House.h"
 	"Poker.h"
 	"Player.h"
+
+1271764077 source:c:\documents and settings\administrator\桌面\blackjack-game\game.cpp
+	"Game.h"
+	<iostream>
+
+1271764077 c:\documents and settings\administrator\桌面\blackjack-game\game.h
+	<vector>
+	<iostream>
+	"House.h"
+	"Poker.h"
+	"Player.h"
+
+1441962198 c:\documents and settings\administrator\桌面\blackjack-game\house.h
+	"People.h"
+
+1441961176 c:\documents and settings\administrator\桌面\blackjack-game\people.h
+	<iostream>
+	<vector>
+	"Card.h"
+
+1271764077 c:\documents and settings\administrator\桌面\blackjack-game\card.h
+	<iostream>
+
+1271764077 c:\documents and settings\administrator\桌面\blackjack-game\poker.h
+	<iostream>
+	<stack>
+	"People.h"
+
+1441962160 c:\documents and settings\administrator\桌面\blackjack-game\player.h
+	"People.h"
+
+1441961428 source:c:\documents and settings\administrator\桌面\blackjack-game\house.cpp
+	"House.h"
+	<iostream>
+
+1441961406 source:c:\documents and settings\administrator\桌面\blackjack-game\people.cpp
+	"People.h"
+	<iostream>
+
+1441961304 source:c:\documents and settings\administrator\桌面\blackjack-game\player.cpp
+	"Player.h"
+	<iostream>
+
+1441961814 source:c:\documents and settings\administrator\桌面\blackjack-game\poker.cpp
+	"Poker.h"
+	<iostream>
+	<cstring>
+	<cstdlib>
+	<ctime>
+
+1271763136 source:c:\documents and settings\administrator\桌面\blackjack-game\main.cpp
+	<iostream>
+	"Card.h"
+	"People.h"
+	"Player.h"
+	"House.h"
+	"Poker.h"
+	"Game.h"
+
+1441960150 source:c:\documents and settings\administrator\桌面\blackjack-game\card.cpp
+	"Card.h"
 

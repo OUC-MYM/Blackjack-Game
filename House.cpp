@@ -5,7 +5,7 @@ using std::endl;
 
 House::House():People("House") {}
 
-void House::FlipFirstCard()
+void House::FlipFirstCard()     //翻转house的第一张牌
 {
     haveCards[0].overTurn();
 }
