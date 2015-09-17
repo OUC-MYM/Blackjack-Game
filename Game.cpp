@@ -93,5 +93,9 @@ void Game::Play()       //©╙й╪сно╥
         players[i].Clear();
     }
     house.Clear();
+<<<<<<< HEAD
     poker.Destroy();
+=======
+    poker.destroy();
+>>>>>>> origin/master
 }

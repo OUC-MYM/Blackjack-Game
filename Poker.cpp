@@ -23,6 +23,7 @@ Poker::Poker()
         switch(temp%4)
         {
         case 1:
+<<<<<<< HEAD
             colour = 3;
             break;
         case 2:
@@ -33,13 +34,29 @@ Poker::Poker()
             break;
         case 0:
             colour = 6;
+=======
+            colour = 'a';
+            break;
+        case 2:
+            colour = 'b';
+            break;
+        case 3:
+            colour = 'c';
+            break;
+        case 0:
+            colour = 'd';
+>>>>>>> origin/master
             break;
         }
         cards.push(Card(num,colour));
     }
 }
 
+<<<<<<< HEAD
 void Poker::Extract(People *people)     //发牌
+=======
+void Poker::extract(People *people)     //发牌
+>>>>>>> origin/master
 {
     if(!cards.empty())
     {
@@ -67,7 +84,11 @@ void Poker::AdditionalCards(People *people)     //添加牌
     }
 }
 
+<<<<<<< HEAD
 void Poker::Destroy()     //丢弃扑克
+=======
+void Poker::destroy()     //丢弃扑克
+>>>>>>> origin/master
 {
     while(!cards.empty())
         cards.pop();

@@ -14,8 +14,13 @@ public:
     void getCard(Card card);        //得到牌
     string getName();       //取得姓名
     int getSum();       //取得手上牌的总点数
+<<<<<<< HEAD
     virtual bool Answer()=0;        //回答是否要牌
     virtual void Display()=0;       //显示手中的牌
+=======
+    virtual bool answer()=0;        //回答是否要牌
+    virtual void disPlay()=0;       //显示手中的牌
+>>>>>>> origin/master
     bool IsBusted();        //判断是否超过21点
     void Win();     //赢
     void Lose();        //输
